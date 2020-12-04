@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Annonce</h1>
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+</div>
+<br>                                                                                                                                                 </br>
+
+
+
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+
+
+                    <table class="table">
+        <tbody>
+            <tr>
+                <th>Codepos</th>
+                <td>{{ annonce.codePos }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ annonce.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Typean</th>
+                <td>{{ annonce.typeAn }}</td>
+            </tr>
+            <tr>
+                <th>Titrean</th>
+                <td>{{ annonce.titreAn }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ annonce.description }}</td>
+            </tr>
+            <tr>
+                <th>Typetarif</th>
+                <td>{{ annonce.typeTarif }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ annonce.prix }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ annonce.photo }}</td>
+            </tr>
+            <tr>
+                <th>Datean</th>
+                <td>{% if annonce.dateAn %}{{ annonce.dateAn|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ annonce.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <ul>
+        <li>
+            <a href="{{ path('annonce_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('annonce_edit', { 'id': annonce.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

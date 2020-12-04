@@ -1,0 +1,7 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+
+red:
+    path:     /red
+    defaults: { _controller: UserBundle:user:red }

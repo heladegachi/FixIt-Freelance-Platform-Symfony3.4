@@ -1,0 +1,33 @@
+#commande_homepage:
+ #   path:     /
+  #  defaults: { _controller: CommandeBundle:Default:index }
+commande_homepage:
+    path:      /homeCommande
+    defaults: { _controller: CommandeBundle:Commande:affichage1 }
+    #home_homepage:
+    #   path:      /home
+    #  defaults: { _controller: CommandeBundle:Commande:affichage1 }
+create:
+    path:     /homeCommande
+    defaults: { _controller: CommandeBundle:Commande:create }
+commande_affichebase:
+    path:     /Commandeshow
+    defaults: { _controller: CommandeBundle:Commande:lire }
+commande_delete:
+    path:     /delete/{id}
+    defaults: { _controller: CommandeBundle:Commande:delete }
+commande_modif:
+    path:     /modif/{id}
+    defaults: { _controller: CommandeBundle:Commande:modif }
+favoris_homepage:
+    path:      /homefavoris
+    defaults: { _controller: CommandeBundle:Favoris:ajoutfavoris}
+favoris_delete:
+    path:     /delete/{id}
+    defaults: { _controller: CommandeBundle:Favoris:delete }
+admine_affiche:
+    path:      /homeAdmin
+    defaults: { _controller: CommandeBundle:Commande:afficheadmin }
+annonce_page1:
+    path:     /homeAnnonce
+    defaults: { _controller: CommandeBundle:Commande:AfficheAnnonce}

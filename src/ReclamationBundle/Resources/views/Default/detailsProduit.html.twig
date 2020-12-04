@@ -1,0 +1,205 @@
+{% extends "base.html.twig" %}
+
+
+  {% block content %}
+
+    <div class="breadcrumb-one mb-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="breadcrumb-img">
+              <img src="{{ asset('img/page-banner/product-banner.jpg')}}" alt="">
+            </div>
+            <div class="breadcrumb-content">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Details Product</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-product-area mb-115">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-5">
+            <div class="product-details-img-tab">
+              <!--Product Tab Content Start-->
+              <div class="tab-content single-product-img">
+                <div class="tab-pane fade show active" id="product1">
+                  <div class="product-large-thumb img-full">
+                    <div class="easyzoom easyzoom--overlay">
+                      <a href="{{ asset('img/product/'~produit.image )}}">
+                        <img src="{{ asset('img/product/'~produit.image )}}" alt="">
+                      </a>
+                      <a href="{{ asset('img/product/'~produit.image )}}" class="popup-img venobox" data-gall="myGallery"><i class="fa fa-search"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="product2">
+
+                </div>
+
+
+
+
+              </div>
+              <!--Product Tab Content End-->
+              <!--Product Tab Menu Start-->
+              <div class="product-menu">
+                <div class="nav product-tab-menu">
+
+
+
+                </div>
+              </div>
+              <!--Product Tab Menu End-->
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-7">
+            <!--Product Details Content Start-->
+            <div class="product-details-content">
+              <!--Product Nav Start-->
+              <div class="product-nav">
+                <a href="#"><i class="fa fa-angle-left"></i></a>
+                <a href="#"><i class="fa fa-angle-right"></i></a>
+              </div>
+              <!--Product Nav End-->
+              <h2>{{ produit.nom }}</h2>
+              <div class="single-product-reviews">
+                  <p>{{ produit.moyenne|rating()  }}</p>
+                <a class="review-link" href="#">({{ countev  }}  Evaluations)</a>
+              </div>
+              <div class="single-product-price">
+                <span >{{ produit.prix }}</span>
+
+              </div>
+              <div class="product-description">
+                <p>{{ produit.description }}</p>
+              </div>
+              <p class="stock in-stock">150 in stock</p>
+              <div class="single-product-quantity">
+
+              </div>
+              <div class="wishlist-compare-btn">
+                  {% if produit.dejaevalue == false %}
+                <a href="{{ path('evaluer_prod', {'id':produit.id}) }}" class="wishlist-btn">Evaluer</a>
+                  {% elseif produit.dejaevalue == true %}
+                    <a href="{{ path('evaluer_prod', {'id':produit.id}) }}" class="btn-danger">Déja évalué </a>
+                  {% endif %}
+                <a href="#" class="add-compare">Compare</a>
+              </div>
+
+              <div class="single-product-sharing">
+                <h3>Partager ce produit </h3>
+                <ul>
+                  <li> {{ socialButtons() }}</li>
+                </ul>
+              </div>
+            </div>
+            <!--Product Details Content End-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Single Product Area End-->
+    <!--Product Description Review Area Start-->
+    <div class="product-description-review-area mb-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="product-review-tab">
+              <!--Review And Description Tab Menu Start-->
+              <ul class="nav dec-and-review-menu">
+
+                <li>
+                  <a data-toggle="tab" href="#reviews">Afficher les commentaires</a>
+                </li>
+              </ul>
+              <!--Review And Description Tab Menu End-->
+              <!--Review And Description Tab Content Start-->
+              <div class="tab-content product-review-content-tab" id="myTabContent-4">
+
+
+                <div class="tab-pane fade" id="reviews">
+
+                  <div class="review-page-comment">
+                    <h2>{{ count }} commentaire pour le produit  {{ produit.nom }}</h2>
+                    <ul>
+                      <li>
+                          {% for c in comments %}
+                        <div class="product-comment">
+                          <img src="img/icon/author.png" alt="">
+                          <div class="product-comment-content">
+                            <div class="product-reviews">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-o"></i>
+                            </div>
+                            <p class="meta">
+                              {{ c.user.id|number_format  }}
+                                {% if c.user.id == user.id %}
+                                  <span>Publié par :</span> - <strong>Moi</strong>
+                                {% else %}
+                              <span>Publié :</span> - <strong>{{ c.user }}</strong>
+                                {% endif %}
+                              <div class="description">
+                            <p>{{ c.description }}</p>
+                          </div>
+                          <center>
+                              {% if c.user.id == user.id %}
+                            <a href="{{ path('update_comment', {'id':c.id}) }}" class="btn-outline-success">Modifier</a>
+                            <a href="{{ path('supprimer_rec', {'id':c.id}) }}" class="btn-outline-danger">Supprimer</a>
+                          {% endif %}
+
+                          </center>
+                        </div>
+                        {% endfor %}
+
+                  </li>
+                  </ul>
+
+                  <div class="review-form-wrapper">
+                    <div class="review-form">
+                      <span class="comment-reply-title">Ajouter un commentaire * </span>
+                      <form action="#" method="post">
+
+
+                        <div class="input-element">
+                          <div class="comment-form-comment">
+
+                            <textarea name="message" cols="40" rows="8" minlength="5" required></textarea>
+                          </div>
+
+
+                          <div class="comment-submit">
+                            <button type="submit" class="form-button">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Review And Description Tab Content End-->
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--Product Description Review Area Start-->
+    <!--Also Like Product Start-->
+
+    <!--Also Like Product End-->
+    <!--Related Product Start-->
+
+    <!--Related Product End-->
+    <!--Brand Area Start-->
+
+
+  {% endblock  %}

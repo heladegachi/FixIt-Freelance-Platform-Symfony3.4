@@ -1,0 +1,4 @@
+services:
+#    admintmp.example:
+#        class: admintmpBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

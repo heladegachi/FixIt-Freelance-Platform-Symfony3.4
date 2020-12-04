@@ -1,0 +1,21 @@
+CommandeBundle\Entity\Commande:
+    type: entity
+    table: null
+    repositoryClass: CommandeBundle\Repository\CommandeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomcommande:
+            type: string
+            length: 255
+        prixcommande:
+            type: integer
+        datecommande:
+            type: date
+        quantitecommande:
+            type: integer
+    lifecycleCallbacks: {  }

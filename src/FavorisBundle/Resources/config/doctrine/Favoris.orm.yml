@@ -1,0 +1,15 @@
+FavorisBundle\Entity\Favoris:
+    type: entity
+    table: null
+    repositoryClass: FavorisBundle\Repository\FavorisRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libelleFav:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

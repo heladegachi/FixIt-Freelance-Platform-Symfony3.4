@@ -1,0 +1,104 @@
+{% extends 'index.html.twig' %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="title-block">
+
+            <h3 class="title">Modifier une categorie  </h3>
+        </div>
+        <table align="center">
+            <form method="post">
+
+                <tr>
+                <tr>
+                    <td> <label class="control-label">Nom Categorie</label></td>
+                </tr>
+                    <td><input  id="nomp" class="form-control underlined" name="name" type="text" value="{{ categorie.name }}" required pattern="[a-zA-Z-\.è]{3,10}" placeholder="De 3 à 10 caractères"></td>
+                </tr>
+
+                <tr>
+
+
+
+
+                <div align="center">
+
+                    <tr>
+                        <td><button type="submit" class="btn btn-success" id="submit"> Modifier </button> </td>
+
+                    </tr>
+
+                </div>
+            </form>
+        </table>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript" >
+        $(document).ready(function () {
+
+            $("#submit").click(function () {
+
+                if ($('#nomp').val().length == "") {
+
+                    // si la chaîne de caractères est inférieure à 5
+                    swal({
+                        title: "Champ nom vide! ",
+                        text: "Veuiller remplir le champ du nom s'il vous plait",
+                        icon: "error",
+                        button: "ok",
+                    });
+
+                    $('#nomp').css({ // on rend le champ rouge
+                        borderColor: 'red',
+                        color: 'red'
+
+                    });
+
+                } else {
+
+                    if ($('#nomp').val().length > 10 || $('#nomp').val().length < 3) {
+
+                        // si la chaîne de caractères est inférieure à 5
+                        swal({
+                            title: "Champs vide! ",
+                            text: "Veuillez saisir un nom de categorie  avec au moins 3 caracteres et au plus 10 caractres",
+                            icon: "warning",
+                            button: "ok",
+                        });
+
+                        $('#nomp').css({ // on rend le champ rouge
+                            borderColor: 'orange',
+                            color: 'orange'
+
+                        });
+
+                    }
+
+                    else {
+
+                        swal({
+                            title: " Remplissage complet  :)  ",
+                            text: "  Remplissage des champs avec succes ",
+                            icon: "success",
+                            button: "ok",
+                        });
+                        $('#nomp').css({ // on rend le champ rouge
+                            borderColor: 'green',
+                            color: 'green'
+
+                        });
+                    }
+
+
+
+                }
+
+            });
+
+        });
+    </script>
+
+
+{% endblock %}

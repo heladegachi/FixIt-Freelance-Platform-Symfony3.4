@@ -1,0 +1,7 @@
+promotion_categorie:
+    resource: "@promotionBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+promotion_homepage:
+    path:     /
+    defaults: { _controller: promotionBundle:Default:index }

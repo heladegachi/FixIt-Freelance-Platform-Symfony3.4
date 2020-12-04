@@ -1,0 +1,150 @@
+{% extends "base.html.twig" %}
+
+
+  {% block content %}
+
+      <!-- Start All Title Box -->
+      <div class="all-title-box">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <h2>Reclamation</h2>
+                      <ul class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item active">ABOUT US</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+      <!-- End All Title Box -->
+      <br>    <br>
+
+      <br>  <br>
+
+
+
+
+
+
+      <!-- Start Contact Us  -->
+      <div class="contact-box-main">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 col-sm-12">
+                      <div class="contact-form-right">
+                          <h2>Plus de details</h2>
+
+
+                          <div class="col-md-12 col-lg-7">
+                              <!--Product Details Content Start-->
+                              <div class="product-details-content">
+                                  <!--Product Nav Start-->
+                                  <div class="product-nav">
+                                      <!--       <a href="#"><i class="fa fa-angle-left"></i></a>
+                                             <a href="#"><i class="fa fa-angle-right"></i></a>    -->
+                                         </div>
+                                         <!--Product Nav End-->
+
+
+                                  <br><br>
+                                  <h2>{{ rec.produit.nom }}</h2>
+
+                                  <div class="product-categori">
+                                      <a class="review-link" href="#">{{ rec.dateReclamation |  date('j. F Y') }}</a>
+                                  </div>
+                                  <div class="product-categori">
+                                      <h1><p>{{ rec.description }}</p></h1>
+                                  </div>
+                                  <p class="stock ">{% if rec.etat == 1 %}
+                                          reclamation Traité
+                                      {% elseif rec.etat == 0 %}
+                                          reclamation pas Encore traité
+
+                                      {% endif %}</p>
+                                  <div class="single-product-quantity">
+
+                                  </div>
+                                  <div class="wishlist-compare-btn">
+
+                                      <div class="price-box-bar">
+                                          <div class="cart-and-bay-btn">
+                                              <a class="btn hvr-hover" data-fancybox-close="" href="{{ path('modifier_rec', {'id':rec.id}) }}" >modifier</a>
+                                              <a class="btn hvr-hover" data-fancybox-close="" href="{{ path('supprimer_rec', {'id':rec.id}) }}" >supprimer</a>
+                                          </div>
+                                      </div>
+
+
+                                  </div>
+                                  <div class="product-meta">
+
+                                  </div>
+                                  <div class="single-product-sharing">
+                                      <h3><li>
+                                              <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><i class="fab fa-facebook-f"></i>
+
+                                                  </a></div>
+                                          </li>
+                                          <li>
+                                              <div class="twitter-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a href="https://twitter.com/intent/tweet?screen_name=TwitterDev&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @TwitterDev</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+                                          </li>
+                                          <li>
+                                              <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark">
+                                                      <i class="fab fa-pinterest"></i></a></div>
+                                          </li></h3>
+                                      <ul>
+
+
+                                      </ul>
+                                  </div>
+                              </div>
+                              <!--Product Details Content End-->
+                          </div>
+
+                      </div>
+                  </div>
+
+
+                  <div class="col-lg-4 col-sm-12">
+                      <div class="contact-info-left">
+
+
+                          <h2>CONTACT INFO</h2>
+
+                          <p><ul>
+                              <li>
+                                  <p><i class="fas fa-map-marker-alt"></i>Address: Technopole El Ghazela <br>Ariana<br> 2083 </p>
+                              </li>
+                              <li>
+                                  <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+99 999 999</a></p>
+                              </li>
+                              <li>
+                                  <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">FixItcontactinfo@gmail.com</a></p>
+                              </li>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          </ul>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- End Cart -->
+
+
+
+
+
+
+  {% endblock %}

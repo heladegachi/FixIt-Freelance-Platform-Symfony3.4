@@ -1,0 +1,4 @@
+favoris_homepage:
+    path:     /
+    defaults: { _controller: FavorisBundle:Default:index }
+

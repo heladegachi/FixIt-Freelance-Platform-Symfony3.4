@@ -1,0 +1,21 @@
+
+annonce_index:
+    path:     /
+    defaults: { _controller: "AnnonceBundle:Annonce:index" }
+
+annonce_show:
+    path:     /{id}/show
+    defaults: { _controller: "AnnonceBundle:Annonce:show" }
+
+
+annonce_new:
+    path:     /new
+    defaults: { _controller: "AnnonceBundle:Annonce:new" }
+
+annonce_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AnnonceBundle:Annonce:edit" }
+
+annonce_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AnnonceBundle:Annonce:delete" }

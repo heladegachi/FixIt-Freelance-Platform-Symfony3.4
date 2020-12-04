@@ -1,0 +1,131 @@
+{% extends "index.html.twig" %}
+
+{% block title %}ReclamationBundle:AdminRec:index{% endblock %}
+
+{% block content %}
+<h1>Liste des Reclamations :</h1>
+
+
+
+    <br>    <br>
+    <center>
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    </center>
+    <br><br><br>
+
+        <div class="input-container">
+            <i class="fa fa-search"></i>
+            <input type="search"  id="searsh" onkeyup="myFunction()" class="form-control-sm boxed">
+            <div class="underline"></div>
+        </div>
+
+    <br><br>
+    <table id="contenu" class="table table-hover" >
+        <thead>
+        <tr>
+        <th>
+            Produit
+        </th>
+        <th >
+            Date reclamation
+        </th>
+        <th >
+             Etat
+        </th>
+        <th >
+            Description
+        </th>
+        <th >
+            image Produit
+        </th>
+        <th >
+            image Reclamation
+        </th>
+        <th >
+            User
+        </th>
+        <th >
+            Action
+        </th>
+        </tr>
+        </thead>
+
+        {% for r in recs %}
+            <tbody>
+            <tr>
+                <td>
+                    {{ r.produit.nom }}
+                </td>
+                <td>
+                     {{ r.dateReclamation |  date('j. F Y') }}
+                </td>
+                <td>
+                    {% if r.etat==0  %}
+
+                   <p style="color: orange"> Pas encore Traité</p>
+                    {% elseif r.etat ==1 %}
+                        <p style="color: green">Traite</p>
+                        {% endif %}
+
+                </td>
+                <td>
+                    {{ r.description  }}
+                </td>
+
+                <td>
+                    <img src="{{ asset('img/product/'~r.produit.image )}}" alt="nom produit" width="100px" height="100px">
+                </td>
+                <td>
+                    <img src="{{ asset('img/product/'~r.image )}}" alt="nom produit" width="100px" height="100px">
+                </td>
+                <td>
+                    {{ r.user  }}
+                </td>
+                <td>
+                    {% if r.etat==1  %}
+                          <p style="color: green" aria-disabled="true"> Deja Traité</p>
+                    {% elseif r.etat ==0 %}
+                        <p style="color: orange"><a href="{{ path('traiter_reclamation', {'id':r.id}) }}">Traiter reclamation</a></p>
+                    {% endif %}
+
+                </td>
+            </tr>
+
+        </tbody>
+        {% endfor %}
+
+    </table>
+
+
+    <script src="{{ asset('jquery-3.1.1.js') }}"></script>
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searsh");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("contenu");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+
+            }
+        }
+    </script>
+
+
+
+{% endblock %}

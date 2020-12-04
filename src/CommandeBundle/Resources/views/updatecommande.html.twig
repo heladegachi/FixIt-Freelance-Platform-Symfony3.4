@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+        <div class="all-title-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>ABOUT US</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">ABOUT US</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>                                                                                                                                                 </br>
+
+
+
+        <div class="cart-box-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-main table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Images</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Date</th>
+                                    <th>Remove</th>
+                                    <th>Update</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for entity in commande %}
+                                    <tr>
+                                        <td class="thumbnail-img">
+                                            <a href="#">
+                                                <img class="img-fluid" src="{{ asset('vendor/images/tulipe.jpg') }}" alt="">
+                                            </a>
+                                        </td>
+                                        <td class="name-pr">
+                                            <a href="#">
+                                                <p> {{entity.NomCommande}}</p>
+                                            </a>
+                                        </td>
+                                        <td class="price-pr">
+                                            <p> {{entity.PrixCommande}}</p>
+                                        </td>
+                                        <td class="quantity-box">  <input type="number" size="4" value="{{entity.quantitecommande}}" min="0" step="1" class=""></td>
+                                        <td class="total-pr">
+                                            <p>{{entity.DateCommande|date}} </p>
+                                        </td>
+                                        <td class="remove-pr">
+                                            <a href="{{ path('commande_delete',{'id':entity.idcommande}) }}">
+                                                <i class="fas fa-times">
+                                                </i>
+                                            </a>
+                                        </td>
+
+                                        <td class="update-box">
+                                            <a href="{{ path('commande_modif',{'id':entity.idcommande}) }}">
+                                                <button>Update</button>
+                                                <i class="nav-link">
+                                                </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                {%  endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {{ form_start(f) }}
+    {{ form_end(f) }}
+
+{% endblock %}

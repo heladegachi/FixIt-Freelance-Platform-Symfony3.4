@@ -1,0 +1,138 @@
+reclamation_homepage:
+    path:     /
+    defaults: { _controller: ReclamationBundle:Default:index }
+
+Ajouter_rec:
+    path:     /AjouterRec
+    defaults: { _controller: ReclamationBundle:Reclamation:AjouterRec }
+Afficher_rec:
+    path:     /AfficherRec
+    defaults: { _controller: ReclamationBundle:Reclamation:readRec }
+DeleteRec:
+    path:     /DeleteRec/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:DeleteRec }
+
+
+
+
+
+
+
+details_produit:
+  path:     /detailsPro/{id}
+  defaults: { _controller: ReclamationBundle:Default:detailsproduit }
+
+list_prod:
+  path:     /listproduits
+  defaults: { _controller: ReclamationBundle:Default:listPro }
+traiter_reclamation:
+  path:     /traiter/{id}
+  defaults: { _controller: ReclamationBundle:Default:traiter }
+
+
+reclamer_rec:
+    path:     /reclamer/{id}
+    defaults: { _controller: ReclamationBundle:Default:reclamer }
+
+supprimer_rec:
+    path:     /supprimerRec/{id}
+    defaults: { _controller: ReclamationBundle:Default:supprimerRec }
+
+modifier_rec:
+    path:     /modifierRec/{id}
+    defaults: { _controller: ReclamationBundle:Default:modifierRec }
+det_reclamation:
+    path:     /detailsRec/{id}
+    defaults: { _controller: ReclamationBundle:Default:detailsreclamation }
+
+All_reclamation:
+    path:     /reclamations
+    defaults: { _controller: ReclamationBundle:Default:listrec }
+rech_rec:
+    path:     /rechercherec
+    defaults: { _controller: ReclamationBundle:Default:ShowreclamationByEtat }
+
+
+
+
+
+admin_index:
+  path:     /admin/index
+  defaults: { _controller: ReclamationBundle:AdminRec:index }
+
+
+
+
+
+
+
+
+
+categorieRec_index:
+  path:     /admin/listercategorie
+  defaults: { _controller: ReclamationBundle:CatReclamation:index }
+  methods:  GET
+
+categorieRec_new:
+  path:     /admin/newcategorie
+  defaults: { _controller: ReclamationBundle:CatReclamation:new }
+  methods:  [GET, POST]
+
+categorieRec_update:
+  path:     /admin/{id}/updatecategorie
+  defaults: { _controller: ReclamationBundle:CatReclamation:update }
+  methods:  [GET, POST]
+
+categorieRec_delete:
+  path:     /admin/deletecategorie
+  defaults: { _controller: ReclamationBundle:CatReclamation:delete }
+
+loadRec_categorie:
+  path:     /admin/load
+  defaults: { _controller: ReclamationBundle:Reclamation:loadCategorie }
+  methods: [post]
+
+verifRec_ajout:
+  path:     /admin/verifajout
+  defaults: { _controller: ReclamationBundle:CatReclamation:verifAjout }
+  methods: [post]
+
+recherchecc:
+  path:     /admin/recherchecc
+  defaults: { _controller: ProduitBundle:CatReclamation:recherche}
+read_reclamation:
+  path:     /readreclamation
+  defaults: { _controller: ReclamationBundle:MobiRec:showRecMobile}
+
+
+rech_reclamation:
+  path:     /rechreclamation/{id}
+  defaults: { _controller: ReclamationBundle:MobiRec:chercherrec}
+read_prod:
+  path:     /readprod
+  defaults: { _controller: ReclamationBundle:MobiRec:showProdMobile}
+
+
+rech_prod:
+  path:     /rechprod/{id}
+  defaults: { _controller: ReclamationBundle:MobiRec:chercherprod}
+
+
+ajoutannMobile:
+  path:     /ajoutanmobile
+  defaults: { _controller: ReclamationBundle:MobiRec:ajoutREc}
+
+modifMobile:
+    path:     /modifm
+    defaults: { _controller: ReclamationBundle:MobiRec:modifm}
+delMobile:
+  path:     /deletem/{id}
+  defaults: { _controller: ReclamationBundle:MobiRec:deletem}
+
+authen:
+    path:     /authen/{email}
+    defaults: { _controller: ReclamationBundle:MobiRec:authen}
+
+
+
+

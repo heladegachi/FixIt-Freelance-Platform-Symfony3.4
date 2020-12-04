@@ -1,0 +1,19 @@
+promotionBundle\Entity\categorie:
+    type: entity
+    table: null
+    repositoryClass: promotionBundle\Repository\categorieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomCategorie:
+            type: string
+            length: 255
+            column: nom_categorie
+        description:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

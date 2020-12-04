@@ -1,0 +1,24 @@
+categorie_index:
+    path:     /
+    defaults: { _controller: "promotionBundle:categorie:index" }
+    methods:  GET
+
+categorie_show:
+    path:     /{id}/show
+    defaults: { _controller: "promotionBundle:categorie:show" }
+    methods:  GET
+
+categorie_new:
+    path:     /new
+    defaults: { _controller: "promotionBundle:categorie:new" }
+    methods:  [GET, POST]
+
+categorie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "promotionBundle:categorie:edit" }
+    methods:  [GET, POST]
+
+categorie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "promotionBundle:categorie:delete" }
+    methods:  DELETE

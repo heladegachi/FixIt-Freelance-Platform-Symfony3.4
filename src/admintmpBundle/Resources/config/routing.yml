@@ -1,0 +1,3 @@
+admintmp_homepage:
+    path:     /index
+    defaults: { _controller: admintmpBundle:Default:index }

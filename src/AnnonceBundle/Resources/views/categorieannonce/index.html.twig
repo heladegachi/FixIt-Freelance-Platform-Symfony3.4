@@ -1,0 +1,39 @@
+{% extends 'index.html.twig' %}
+
+{% block content %}
+    <h1>Categorieannonces list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Categorie</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieannonce in categorieannonces %}
+            <tr>
+                <td><a href="{{ path('cat_show', { 'id': categorieannonce.id }) }}">{{ categorieannonce.categorie }}</a></td>
+                <td>{{ categorieannonce.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cat_show', { 'id': categorieannonce.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cat_edit', { 'id': categorieannonce.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cat_new') }}">Create a new categorieannonce</a>
+        </li>
+    </ul>
+{% endblock %}
